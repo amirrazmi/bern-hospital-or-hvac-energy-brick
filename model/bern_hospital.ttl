@@ -1,0 +1,304 @@
+@prefix bldg: <urn:bern-hospital#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix h: <urn:bern-hospital-props#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+bldg:Hospital_Bern a brick:Building ;
+    rdfs:label "Hospital, Bern region (representative case)" ;
+    brick:hasPart bldg:AHU_OR,
+        bldg:AHU_PH ;
+    brick:hasPoint bldg:Outside_Air_Temp .
+
+bldg:AHU_OR a brick:AHU ;
+    rdfs:label "AHU-OR, operating room suite" ;
+    brick:feeds bldg:Zone_OR_1,
+        bldg:Zone_OR_2,
+        bldg:Zone_OR_3,
+        bldg:Zone_OR_4,
+        bldg:Zone_OR_5,
+        bldg:Zone_OR_6 ;
+    brick:hasPart bldg:AHU_OR_Exhaust_Fan,
+        bldg:AHU_OR_Final_Filter,
+        bldg:AHU_OR_Heat_Recovery,
+        bldg:AHU_OR_Humidifier,
+        bldg:AHU_OR_Supply_Fan ;
+    brick:hasPoint bldg:AHU_OR_Mode,
+        bldg:AHU_OR_Supply_Air_Flow,
+        bldg:AHU_OR_Supply_Air_Temp .
+
+bldg:AHU_OR_Exhaust_Fan a brick:Exhaust_Fan ;
+    rdfs:label "AHU-OR, operating room suite exhaust fan" .
+
+bldg:AHU_OR_Final_Filter a brick:Final_Filter ;
+    rdfs:label "AHU-OR, operating room suite terminal HEPA filters" .
+
+bldg:AHU_OR_HR_Efficiency a brick:Thermal_Power_Sensor ;
+    rdfs:label "AHU OR HR Efficiency" ;
+    h:timeseries "or_hr_eff" .
+
+bldg:AHU_OR_Heat_Recovery a brick:Heat_Exchanger ;
+    rdfs:label "AHU-OR, operating room suite run-around coil heat recovery" ;
+    brick:hasPoint bldg:AHU_OR_HR_Efficiency .
+
+bldg:AHU_OR_Humidifier a brick:Humidifier ;
+    rdfs:label "AHU-OR, operating room suite steam humidifier" .
+
+bldg:AHU_OR_Mode a brick:Occupied_Mode_Status ;
+    rdfs:label "AHU OR Mode" ;
+    h:timeseries "or_occupied" .
+
+bldg:AHU_OR_Supply_Air_Flow a brick:Supply_Air_Flow_Sensor ;
+    rdfs:label "AHU OR Supply Air Flow" ;
+    h:timeseries "or_airflow_m3h" .
+
+bldg:AHU_OR_Supply_Air_Temp a brick:Supply_Air_Temperature_Sensor ;
+    rdfs:label "AHU OR Supply Air Temp" ;
+    h:timeseries "or_sat_c" .
+
+bldg:AHU_OR_Supply_Fan a brick:Supply_Fan ;
+    rdfs:label "AHU-OR, operating room suite supply fan" .
+
+bldg:AHU_PH a brick:AHU ;
+    rdfs:label "AHU-PH, hospital pharmacy cleanroom" ;
+    brick:feeds bldg:Zone_Pharmacy_Cleanroom ;
+    brick:hasPart bldg:AHU_PH_Exhaust_Fan,
+        bldg:AHU_PH_Final_Filter,
+        bldg:AHU_PH_Heat_Recovery,
+        bldg:AHU_PH_Humidifier,
+        bldg:AHU_PH_Supply_Fan ;
+    brick:hasPoint bldg:AHU_PH_Mode,
+        bldg:AHU_PH_Supply_Air_Flow,
+        bldg:AHU_PH_Supply_Air_Temp .
+
+bldg:AHU_PH_Exhaust_Fan a brick:Exhaust_Fan ;
+    rdfs:label "AHU-PH, hospital pharmacy cleanroom exhaust fan" .
+
+bldg:AHU_PH_Final_Filter a brick:Final_Filter ;
+    rdfs:label "AHU-PH, hospital pharmacy cleanroom terminal HEPA filters" .
+
+bldg:AHU_PH_HR_Efficiency a brick:Thermal_Power_Sensor ;
+    rdfs:label "AHU PH HR Efficiency" ;
+    h:timeseries "ph_hr_eff" .
+
+bldg:AHU_PH_Heat_Recovery a brick:Heat_Exchanger ;
+    rdfs:label "AHU-PH, hospital pharmacy cleanroom run-around coil heat recovery" ;
+    brick:hasPoint bldg:AHU_PH_HR_Efficiency .
+
+bldg:AHU_PH_Humidifier a brick:Humidifier ;
+    rdfs:label "AHU-PH, hospital pharmacy cleanroom steam humidifier" .
+
+bldg:AHU_PH_Mode a brick:Occupied_Mode_Status ;
+    rdfs:label "AHU PH Mode" ;
+    h:timeseries "ph_occupied" .
+
+bldg:AHU_PH_Supply_Air_Flow a brick:Supply_Air_Flow_Sensor ;
+    rdfs:label "AHU PH Supply Air Flow" ;
+    h:timeseries "ph_airflow_m3h" .
+
+bldg:AHU_PH_Supply_Air_Temp a brick:Supply_Air_Temperature_Sensor ;
+    rdfs:label "AHU PH Supply Air Temp" ;
+    h:timeseries "ph_sat_c" .
+
+bldg:AHU_PH_Supply_Fan a brick:Supply_Fan ;
+    rdfs:label "AHU-PH, hospital pharmacy cleanroom supply fan" .
+
+bldg:OR_1 a brick:Medical_Room ;
+    rdfs:label "OR 1" ;
+    brick:hasPoint bldg:OR_1_Humidity,
+        bldg:OR_1_Occupancy,
+        bldg:OR_1_Pressure_Diff,
+        bldg:OR_1_Temp ;
+    h:roomType "operating room" .
+
+bldg:OR_1_Humidity a brick:Zone_Air_Humidity_Sensor ;
+    rdfs:label "OR 1 Humidity" ;
+    h:timeseries "or_1_rh" .
+
+bldg:OR_1_Occupancy a brick:Occupancy_Sensor ;
+    rdfs:label "OR 1 Occupancy" ;
+    h:timeseries "or_1_occ" .
+
+bldg:OR_1_Pressure_Diff a brick:Air_Differential_Pressure_Sensor ;
+    rdfs:label "OR 1 Pressure Diff" ;
+    h:timeseries "or_1_dp_pa" .
+
+bldg:OR_1_Temp a brick:Zone_Air_Temperature_Sensor ;
+    rdfs:label "OR 1 Temp" ;
+    h:timeseries "or_1_t_c" .
+
+bldg:OR_2 a brick:Medical_Room ;
+    rdfs:label "OR 2" ;
+    brick:hasPoint bldg:OR_2_Humidity,
+        bldg:OR_2_Occupancy,
+        bldg:OR_2_Pressure_Diff,
+        bldg:OR_2_Temp ;
+    h:roomType "operating room" .
+
+bldg:OR_2_Humidity a brick:Zone_Air_Humidity_Sensor ;
+    rdfs:label "OR 2 Humidity" ;
+    h:timeseries "or_2_rh" .
+
+bldg:OR_2_Occupancy a brick:Occupancy_Sensor ;
+    rdfs:label "OR 2 Occupancy" ;
+    h:timeseries "or_2_occ" .
+
+bldg:OR_2_Pressure_Diff a brick:Air_Differential_Pressure_Sensor ;
+    rdfs:label "OR 2 Pressure Diff" ;
+    h:timeseries "or_2_dp_pa" .
+
+bldg:OR_2_Temp a brick:Zone_Air_Temperature_Sensor ;
+    rdfs:label "OR 2 Temp" ;
+    h:timeseries "or_2_t_c" .
+
+bldg:OR_3 a brick:Medical_Room ;
+    rdfs:label "OR 3" ;
+    brick:hasPoint bldg:OR_3_Humidity,
+        bldg:OR_3_Occupancy,
+        bldg:OR_3_Pressure_Diff,
+        bldg:OR_3_Temp ;
+    h:roomType "operating room" .
+
+bldg:OR_3_Humidity a brick:Zone_Air_Humidity_Sensor ;
+    rdfs:label "OR 3 Humidity" ;
+    h:timeseries "or_3_rh" .
+
+bldg:OR_3_Occupancy a brick:Occupancy_Sensor ;
+    rdfs:label "OR 3 Occupancy" ;
+    h:timeseries "or_3_occ" .
+
+bldg:OR_3_Pressure_Diff a brick:Air_Differential_Pressure_Sensor ;
+    rdfs:label "OR 3 Pressure Diff" ;
+    h:timeseries "or_3_dp_pa" .
+
+bldg:OR_3_Temp a brick:Zone_Air_Temperature_Sensor ;
+    rdfs:label "OR 3 Temp" ;
+    h:timeseries "or_3_t_c" .
+
+bldg:OR_4 a brick:Medical_Room ;
+    rdfs:label "OR 4" ;
+    brick:hasPoint bldg:OR_4_Humidity,
+        bldg:OR_4_Occupancy,
+        bldg:OR_4_Pressure_Diff,
+        bldg:OR_4_Temp ;
+    h:roomType "operating room" .
+
+bldg:OR_4_Humidity a brick:Zone_Air_Humidity_Sensor ;
+    rdfs:label "OR 4 Humidity" ;
+    h:timeseries "or_4_rh" .
+
+bldg:OR_4_Occupancy a brick:Occupancy_Sensor ;
+    rdfs:label "OR 4 Occupancy" ;
+    h:timeseries "or_4_occ" .
+
+bldg:OR_4_Pressure_Diff a brick:Air_Differential_Pressure_Sensor ;
+    rdfs:label "OR 4 Pressure Diff" ;
+    h:timeseries "or_4_dp_pa" .
+
+bldg:OR_4_Temp a brick:Zone_Air_Temperature_Sensor ;
+    rdfs:label "OR 4 Temp" ;
+    h:timeseries "or_4_t_c" .
+
+bldg:OR_5 a brick:Medical_Room ;
+    rdfs:label "OR 5" ;
+    brick:hasPoint bldg:OR_5_Humidity,
+        bldg:OR_5_Occupancy,
+        bldg:OR_5_Pressure_Diff,
+        bldg:OR_5_Temp ;
+    h:roomType "operating room" .
+
+bldg:OR_5_Humidity a brick:Zone_Air_Humidity_Sensor ;
+    rdfs:label "OR 5 Humidity" ;
+    h:timeseries "or_5_rh" .
+
+bldg:OR_5_Occupancy a brick:Occupancy_Sensor ;
+    rdfs:label "OR 5 Occupancy" ;
+    h:timeseries "or_5_occ" .
+
+bldg:OR_5_Pressure_Diff a brick:Air_Differential_Pressure_Sensor ;
+    rdfs:label "OR 5 Pressure Diff" ;
+    h:timeseries "or_5_dp_pa" .
+
+bldg:OR_5_Temp a brick:Zone_Air_Temperature_Sensor ;
+    rdfs:label "OR 5 Temp" ;
+    h:timeseries "or_5_t_c" .
+
+bldg:OR_6 a brick:Medical_Room ;
+    rdfs:label "OR 6" ;
+    brick:hasPoint bldg:OR_6_Humidity,
+        bldg:OR_6_Occupancy,
+        bldg:OR_6_Pressure_Diff,
+        bldg:OR_6_Temp ;
+    h:roomType "operating room" .
+
+bldg:OR_6_Humidity a brick:Zone_Air_Humidity_Sensor ;
+    rdfs:label "OR 6 Humidity" ;
+    h:timeseries "or_6_rh" .
+
+bldg:OR_6_Occupancy a brick:Occupancy_Sensor ;
+    rdfs:label "OR 6 Occupancy" ;
+    h:timeseries "or_6_occ" .
+
+bldg:OR_6_Pressure_Diff a brick:Air_Differential_Pressure_Sensor ;
+    rdfs:label "OR 6 Pressure Diff" ;
+    h:timeseries "or_6_dp_pa" .
+
+bldg:OR_6_Temp a brick:Zone_Air_Temperature_Sensor ;
+    rdfs:label "OR 6 Temp" ;
+    h:timeseries "or_6_t_c" .
+
+bldg:Outside_Air_Temp a brick:Outside_Air_Temperature_Sensor ;
+    rdfs:label "Outside Air Temp" ;
+    h:timeseries "oat_c" .
+
+bldg:Pharmacy_Cleanroom a brick:Medical_Room ;
+    rdfs:label "Pharmacy Cleanroom" ;
+    brick:hasPoint bldg:Pharmacy_Cleanroom_Humidity,
+        bldg:Pharmacy_Cleanroom_Occupancy,
+        bldg:Pharmacy_Cleanroom_Pressure_Diff,
+        bldg:Pharmacy_Cleanroom_Temp ;
+    h:roomType "pharmacy cleanroom GMP grade C" .
+
+bldg:Pharmacy_Cleanroom_Humidity a brick:Zone_Air_Humidity_Sensor ;
+    rdfs:label "Pharmacy Cleanroom Humidity" ;
+    h:timeseries "pharmacy_cleanroom_rh" .
+
+bldg:Pharmacy_Cleanroom_Occupancy a brick:Occupancy_Sensor ;
+    rdfs:label "Pharmacy Cleanroom Occupancy" ;
+    h:timeseries "pharmacy_cleanroom_occ" .
+
+bldg:Pharmacy_Cleanroom_Pressure_Diff a brick:Air_Differential_Pressure_Sensor ;
+    rdfs:label "Pharmacy Cleanroom Pressure Diff" ;
+    h:timeseries "pharmacy_cleanroom_dp_pa" .
+
+bldg:Pharmacy_Cleanroom_Temp a brick:Zone_Air_Temperature_Sensor ;
+    rdfs:label "Pharmacy Cleanroom Temp" ;
+    h:timeseries "pharmacy_cleanroom_t_c" .
+
+bldg:Zone_OR_1 a brick:HVAC_Zone ;
+    rdfs:label "Zone OR_1" ;
+    brick:hasPart bldg:OR_1 .
+
+bldg:Zone_OR_2 a brick:HVAC_Zone ;
+    rdfs:label "Zone OR_2" ;
+    brick:hasPart bldg:OR_2 .
+
+bldg:Zone_OR_3 a brick:HVAC_Zone ;
+    rdfs:label "Zone OR_3" ;
+    brick:hasPart bldg:OR_3 .
+
+bldg:Zone_OR_4 a brick:HVAC_Zone ;
+    rdfs:label "Zone OR_4" ;
+    brick:hasPart bldg:OR_4 .
+
+bldg:Zone_OR_5 a brick:HVAC_Zone ;
+    rdfs:label "Zone OR_5" ;
+    brick:hasPart bldg:OR_5 .
+
+bldg:Zone_OR_6 a brick:HVAC_Zone ;
+    rdfs:label "Zone OR_6" ;
+    brick:hasPart bldg:OR_6 .
+
+bldg:Zone_Pharmacy_Cleanroom a brick:HVAC_Zone ;
+    rdfs:label "Zone Pharmacy_Cleanroom" ;
+    brick:hasPart bldg:Pharmacy_Cleanroom .
+

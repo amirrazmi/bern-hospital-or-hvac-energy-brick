@@ -1,0 +1,8 @@
+AHU,Finding,Evidence,Measure
+AHU-OR,Full airflow 24/7,"Rooms are in use only 30% of hours, but airflow never reduces",Occupancy-based setback with maintained overpressure
+AHU-OR,Low heat recovery,Run-around coil efficiency 45%,"High-efficiency run-around coil (about 70 %), no air mixing"
+AHU-OR,High specific fan power,SFP 2.5 kW per m3/s,"EC fans, lower-pressure-drop pre-filters, pressure reset"
+AHU-PH,Full airflow 24/7,"Rooms are in use only 36% of hours, but airflow never reduces",Occupancy-based setback with maintained overpressure
+AHU-PH,Low heat recovery,Run-around coil efficiency 45%,"High-efficiency run-around coil (about 70 %), no air mixing"
+AHU-PH,High specific fan power,SFP 2.5 kW per m3/s,"EC fans, lower-pressure-drop pre-filters, pressure reset"
+Both AHUs,Humidification in mild cold weather,Steam humidification starts below 5 C outdoor temperature (approximate model),Dew-point based humidity control where the hygiene concept allows a wider band

@@ -1,0 +1,6 @@
+Step,Electricity MWh/a,Heat MWh/a,Energy cost kCHF/a,Total energy MWh/a,Saving vs baseline
+Baseline,746,865,253,1611,0 %
+"M1 Occupancy setback (OR 50 %, pharmacy 60 %)",391,562,146,953,41 %
+M2 + Heat recovery 70 %,391,191,101,582,64 %
+"M3 + EC fans, SFP 1.8",352,191,93,543,66 %
+M4 + Dew-point humidity control,226,191,68,417,74 %
